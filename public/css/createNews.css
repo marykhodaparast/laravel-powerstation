@@ -1,0 +1,18 @@
+.Text {
+    width: 95%;
+}
+.newsFile{
+    width:90%;
+}
+.check{
+    width:8%;
+}
+.input-group {
+    flex-wrap: wrap!important;
+}
+
+.invalid-feedback{
+    display: block;
+}
+
+

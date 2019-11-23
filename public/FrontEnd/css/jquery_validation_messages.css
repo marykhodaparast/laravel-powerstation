@@ -1,0 +1,24 @@
+#name-error{
+    color:red;
+}
+#last_name-error{
+    color:red;
+}
+#email-error{
+    color:red;
+}
+#password-error{
+    color:red;
+}
+#password_confirmation-error{
+    color:red;
+}
+.border-color-input{
+    border:solid 1.5px red;
+}
+input[class="error"]{
+    border:solid 1.5px red;
+}
+input[type="text"][class="error"]{
+    border:solid 1.5px red;
+}
