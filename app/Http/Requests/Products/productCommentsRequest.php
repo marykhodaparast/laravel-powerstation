@@ -24,7 +24,7 @@ class productCommentsRequest extends FormRequest
     public function rules()
     {
         return [
-            //'body'=>'string|max:2000',
+           // 'body'=>'string|max:2000',
         ];
     }
 }

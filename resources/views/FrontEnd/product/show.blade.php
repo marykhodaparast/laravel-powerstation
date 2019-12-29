@@ -110,15 +110,17 @@
                             </div>
                             <div class="single-comment reply_div display_none reply">
                                 <div id="demo" class="comment-content comment-form">
-                                    <form action="{{ route('products.store',['id'=>$product->id]) }}"
-                                        method="POST" class="commentForm">
+                                    <form action="{{ route('products.store',['id'=>$product->id,
+                                        'comment_id'=>$comment->id]) }}" method="POST" class="commentForm">
                                         @csrf
+                                        <input type="hidden" class="myCommentId" name="comment_id"
+                                            value="{{ $comment->id }}" />
                                         <textarea class="reply_body" name="body"></textarea>
                                         <input type="submit" value="Save">
 
                                     </form>
                                     @if(auth()->check())
-                                    <div class="alert alert-success mt display_none success-msg" >
+                                    <div class="alert alert-success mt display_none success-msg">
                                         Your comment has been recorded and will be displayed on the screen after
                                         approval.
                                     </div>
@@ -134,10 +136,11 @@
                                     <img src="{{ asset('FrontEnd/images/graverter.jpg') }}" alt="author">
                                 </div>
                                 <div class="comment-content comment-form">
-                                    <form action="{{ route('products.store',['id'=>$product->id]) }}" method="POST"
-                                        class="commentForm">
+                                    <form action="{{ route('products.store',['id'=>$product->id,
+                                        'comment_id'=>0]) }}" method="POST" class="commentForm">
                                         @csrf
-                                        <textarea id="body" name="body"></textarea>
+                                        <input type="hidden" class="myCommentId" name="comment_id" value="0" />
+                                        <textarea class="body" name="body"></textarea>
                                         <input type="submit" value="Comment"
                                             onClick={{ !auth()->check()? "noAuth()":""}}>
                                     </form>
@@ -235,8 +238,10 @@
 <script>
     $(".commentForm").submit(function(event){
         event.preventDefault();
+        var comment_id = $('.myCommentId').val();
+        var body = $('.body').val();
         var auth = '{{ auth()->check()}}';
-        if (event.target[1].value.trim() == "" ) {
+        if (event.target[1].value.trim() == "" || body == "" ){
             Swal.fire({
                 title: 'noComment Error!',
                 text: 'please write your comment!',
@@ -252,12 +257,14 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: 'POST',
-            url: '{{ route('products.store',['id'=>$product->id]) }}',
+            url: '{{ route('products.store',['id'=>$product->id,'comment_id'=> $comment->id]) }}',
             //data: event.target[1].value.trim(),
             data:$('.commentForm').serialize(),
             async: false,
             success: function (data) {
-                $('.success-msg').css("display","block");
+                if(body!=""){
+                    $(this).find('success-msg').css("display","block");
+                }
 
             },
             error: function (data) {
@@ -323,8 +330,6 @@
          $(this).children().toggleClass('fa-thumbs-o-up');
          $(this).children().toggleClass('fa-thumbs-up');
          $(this).children().toggleClass('like_color');
-         //console.log($(this).children().hasClass('fa-thumbs-o-up'));
-         //console.log(parseInt($(this).text()));
          if($(this).children().hasClass('fa-thumbs-up')){
             var x = parseInt($(this).text())+1;
             console.log(x);

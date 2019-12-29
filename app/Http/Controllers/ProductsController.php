@@ -44,7 +44,7 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function store(productCommentsRequest $request, $id)
+    public function store(productCommentsRequest $request, $id,$comment_id)
     {
         $comment = new ProductComments();
         if (auth()->check()) {
@@ -55,9 +55,10 @@ class ProductsController extends Controller
         $comment->product_id = $id;
         //dd($comment->replies->id);
         //$x = ProductComments::where('id',5)->get();
-        $comment->reply_id = 0;
+        $comment->body = $request->input('body');
+        $comment_id!=0 ? $comment->reply_id = $comment_id: $comment->reply_id = 0;
         $comment->fill($request->all());
-        if ($comment->user_id != 0) {
+        if ($comment->user_id != 0 && $comment->body!=null) {
             $comment->save();
         }
     }

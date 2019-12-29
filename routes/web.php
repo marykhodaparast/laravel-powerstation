@@ -102,7 +102,7 @@ Route::get('/test',function(){
 //  });
 Route::get('products/all','ProductsController@index')->name('products.all');
 Route::get('products/{slug}','ProductsController@show')->name('products.show');
-Route::post('products/store/{id}','ProductsController@store')->name('products.store');
+Route::post('products/store/{id}/{comment_id}','ProductsController@store')->name('products.store');
 
 Route::get('news/all','NewsController@index')->name('news.all');
 Route::get('news/{slug}','NewsController@show')->name('news.show');
