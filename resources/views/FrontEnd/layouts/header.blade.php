@@ -108,10 +108,12 @@
                                                 <div class="row p-right-left">
                                                     <label>Email Address</label>
                                                     <input type="email" name="email">
+                                                    <label class="error display_none email-error"></label>
                                                 </div>
                                                 <div class="row p-right-left">
                                                     <label>Password</label>
                                                     <input type="password" name="password">
+                                                    <label class="error display_none password-error"></label>
                                                 </div>
                                                 <div class="alert alert-success display_none" id="login_success">
                                                     succesfully logged-in!

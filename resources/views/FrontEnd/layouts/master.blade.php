@@ -34,7 +34,7 @@
         href="{{asset('FrontEnd/images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed"
         href="{{asset('FrontEnd/images/ico/apple-touch-icon-57-precomposed.png')}}">
-        <link rel="stylesheet" href="{{ asset('FrontEnd/css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('FrontEnd/css/sweetalert2.min.css') }}">
 
     @yield('styles')
 </head>
@@ -180,16 +180,49 @@
                 data: $(form_id).serialize(),
                 async: false,
                 success: function (data) {
-                    //console.log('success');
                     document.getElementById(successDiv).style.display = 'block';
                     result = true;
                 },
                 error: function (data) {
-                    //console.log('error');
-                var text_data = eval("(" + data.responseText + ")");
-                $.each( Object.keys(text_data.errors), function( key, value ) {
-                    display_error(Object.values(text_data.errors)[key],'#'+value,'#'+value+'-error');
-                });
+                    //if(form_id=='login_form'){
+                        var text_data = eval("(" + data.responseText + ")");
+                        $.each( Object.keys(text_data.errors), function( key, value ) {
+                            display_error(Object.values(text_data.errors)[key],'#'+value,'#'+value+'-error');
+                        });
+                   // }else if(form_id=='register_form'){
+
+                    //}
+
+                }
+            });
+            return result;
+        }
+    </script>
+    <script>
+        function ajaxLoginForm(url,form_id,successDiv){
+            var result = false;
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: url,
+                data: $(form_id).serialize(),
+                async: false,
+                success: function (data) {
+                    document.getElementById(successDiv).style.display = 'block';
+                    result = true;
+                },
+                error: function (data) {
+                    //if(form_id=='login_form'){
+                        var text_data = eval("(" + data.responseText + ")");
+                        $.each( Object.keys(text_data.errors), function( key, value ) {
+                            display_error(Object.values(text_data.errors)[key],'.'+value,'.'+value+'-error');
+                        });
+                   // }else if(form_id=='register_form'){
+
+                    //}
+
                 }
             });
             return result;
@@ -203,14 +236,14 @@
                event.preventDefault();
                var formID = $(this).closest("form").attr("id");
                if(formID == 'register_form'){
-                  ajaxForm('/register','#register_form','register_success');
+                  ajaxForm('/register',this,'register_success');
                }
           });
           $("#login_form").submit(function(event){
             event.preventDefault();
             var formID = $(this).closest("form").attr("id");
             if(formID == 'login_form'){
-               $result=ajaxForm('/login','#login_form','login_success');
+               $result=ajaxLoginForm('/login',this,'login_success');
                if($result){
                    location.reload();
                }
