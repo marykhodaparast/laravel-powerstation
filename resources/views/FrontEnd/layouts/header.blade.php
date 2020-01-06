@@ -59,10 +59,10 @@
                     <li><a href="{{ route('products.all') }}">Products</a></li>
                     <li><a href="{{ route('news.all') }}">Blog</a></li>
                     <li><a href="contact-us.html">Contact</a></li>
-                      {{--  <form method="post" action="{{ route('logout') }}">
+                       <form method="post" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">logout</button>
-                    </form>  --}}
+                    </form> 
                     @auth
                     <li>
                         @if(auth()->user()->is_admin == 1)
@@ -163,7 +163,7 @@
                                                     An activation link has been sent to your email.please check your
                                                     email.
                                                 </div>
-                                                <button type="submit" class="btnModalValid">Join now</button>
+                                                <button type="submit" class="btnModalValid" id="registerBtn">Join now</button>
                                                 <p>By clicking Join now, you agree to hifriendss User Agreement,
                                                     Privacy Policy, and Cookie Policy.</p>
                                             </form>
