@@ -59,10 +59,10 @@
                     <li><a href="{{ route('products.all') }}">Products</a></li>
                     <li><a href="{{ route('news.all') }}">Blog</a></li>
                     <li><a href="contact-us.html">Contact</a></li>
-                       <form method="post" action="{{ route('logout') }}">
+                       {{-- <form method="post" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit">logout</button>
-                    </form> 
+                    {{-- <button type="submit">logout</button> --}}
+                    {{-- </form> --}}
                     @auth
                     <li>
                         @if(auth()->user()->is_admin == 1)

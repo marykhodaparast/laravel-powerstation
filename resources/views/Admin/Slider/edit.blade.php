@@ -20,10 +20,7 @@
     {{--Begin:body--}}
     <div class="form-group">
         <label for="body" class="ml-2">Body:</label>
-        <textarea rows="5" cols="6" name="body" class="form-control Text ml-2
-         {{$errors->has('body')?'is-invalid':''}}">
-            {{$slider->body}}
-        </textarea>
+        <textarea rows="5" cols="6" name="body" class="form-control Text ml-2 {{$errors->has('body')?'is-invalid':''}}">{{$slider->body}}</textarea>
         @if($errors->has('body'))
             <div class="invalid-feedback ml-2">{{$errors->first('body')}}</div>
         @endif
