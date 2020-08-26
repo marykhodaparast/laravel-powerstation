@@ -178,5 +178,6 @@
             </div>
         </div>
         {{-- End:modal for login/register--}}
+    </div>
 
 </header>
