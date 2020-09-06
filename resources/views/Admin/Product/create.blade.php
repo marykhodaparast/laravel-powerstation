@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{asset('/css/createNews.css')}}">
-</style>
 @endsection
 @section('content')
 @if(Session::has('message'))
@@ -10,7 +9,7 @@
     <strong>{{ Session::get('message') }}</strong>
 </div>
 @endif
-<form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.products.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     {{--Begin:Title--}}
     <div class="form-group">
@@ -27,9 +26,7 @@
     <div class="form-group">
         <label for="description" class="ml-2">Description:</label>
         <textarea rows="5" cols="6" name="description" class="form-control Text ml-2
-             {{$errors->has('description')?'is-invalid':''}}">
-                {{old('description')}}
-            </textarea>
+             {{$errors->has('description')?'is-invalid':''}}">{{old('description')}}</textarea>
         @if($errors->has('description'))
         <div class="invalid-feedback ml-2">{{$errors->first('description')}}</div>
         @endif
@@ -39,12 +36,19 @@
     {{-- Start:category_id --}}
     <div class="form-group">
         <label for="category_id" class="ml-2">Category:</label>
+        @if(count($categories))
         <select class="form-control ml-2 Text" id="cat" name="category_id">
             @foreach($categories as $category)
             <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
 
         </select>
+        @else
+         <a href="{{ route('admin.category.create') }}">Create category and then come back to this page</a>
+         @if($errors->has('category_id'))
+        <div class="invalid-feedback ml-2">{{$errors->first('category_id')}}</div>
+        @endif
+        @endif
     </div>
     {{-- End:category_id --}}
 

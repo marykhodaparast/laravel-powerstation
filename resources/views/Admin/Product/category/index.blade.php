@@ -52,7 +52,7 @@
 $ ( document ).ready(function() {
     $.ajax({
         type: 'GET',
-        url: '{{route('category.data')}}',
+        url: '{{route('admin.category.data')}}',
         mimeType: 'json',
         success: function(data) {
             var size = Object.size(data.data);
@@ -74,7 +74,7 @@ $ ( document ).ready(function() {
             $( "categoryData" ).DataTable();
         },
         error: function(data) {
-            
+
         }
     });
     });

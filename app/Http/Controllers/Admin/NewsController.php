@@ -112,7 +112,7 @@ class NewsController extends Controller
             $news->video = $request->file('video');
         }
         $news->save();
-        return redirect(route('news.index'));
+        return redirect(route('admin.news.index'));
     }
 
     /**

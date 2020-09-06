@@ -55,7 +55,7 @@
 $ ( document ).ready(function() {
     $.ajax({
         type: 'GET',
-        url: '{{route('product.comment.data')}}',
+        url: '{{route('admin.product.comment.data')}}',
         mimeType: 'json',
         success: function(data) {
             var size = Object.size(data.data);

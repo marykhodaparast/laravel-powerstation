@@ -9,7 +9,7 @@
             <strong>{{ Session::get('message') }}</strong>
         </div>
     @endif
-<form action="{{route('sliders.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.sliders.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     {{--Begin:Title--}}
     <div class="form-group">

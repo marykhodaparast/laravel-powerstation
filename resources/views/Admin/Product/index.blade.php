@@ -52,7 +52,7 @@
 $ ( document ).ready(function() {
     $.ajax({
         type: 'GET',
-        url: '{{route('products.data')}}',
+        url: '{{route('admin.products.data')}}',
         mimeType: 'json',
         success: function(data) {
             var size = Object.size(data.data);

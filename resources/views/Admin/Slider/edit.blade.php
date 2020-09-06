@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<form action="{{route('sliders.update',['id'=>$slider->id])}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.sliders.update',['id'=>$slider->id])}}" method="post" enctype="multipart/form-data">
     @csrf
     {{--Begin:Title--}}
     <div class="form-group">

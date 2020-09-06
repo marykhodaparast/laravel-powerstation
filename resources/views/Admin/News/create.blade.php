@@ -10,7 +10,7 @@
     <strong>{{ Session::get('message') }}</strong>
 </div>
 @endif
-<form action="{{route('news.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.news.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     {{--Begin:Title--}}
     <div class="form-group">

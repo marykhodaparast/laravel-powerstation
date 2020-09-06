@@ -26,6 +26,7 @@ class productCreateRequest extends FormRequest
         return [
             'name'=>'required|min:5|max:255',
             'description'=>'required',
+            'category_id'=>'required',
             'image'=>'required|image|mimes:jpeg,png,gif|max:2048',
             'pdf'=>'required|mimes:pdf|max:10000'
         ];

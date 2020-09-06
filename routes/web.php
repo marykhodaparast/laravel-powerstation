@@ -15,9 +15,9 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 }
 /** Start:admin part */
-Route::namespace('Admin')->prefix('admin')->middleware('admin')->group(function(){
+Route::namespace('Admin')->prefix('admin')->middleware('admin')->name("admin.")->group(function(){
 
-  Route::get('/','HomeController@index')->name('admin.index');
+  Route::get('/','HomeController@index')->name('index');
 
     /**
      * News part

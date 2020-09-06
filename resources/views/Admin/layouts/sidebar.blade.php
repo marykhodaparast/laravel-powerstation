@@ -37,8 +37,8 @@
         </a>
         <div id="news" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('news.index')}}">index</a>
-                <a class="collapse-item" href="{{route('news.create')}}">create</a>
+                <a class="collapse-item" href="{{route('admin.news.index')}}">index</a>
+                <a class="collapse-item" href="{{route('admin.news.create')}}">create</a>
             </div>
         </div>
     </li>
@@ -52,8 +52,8 @@
         </a>
         <div id="slider" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('sliders.index')}}">index</a>
-                <a class="collapse-item" href="{{route('sliders.create')}}">create</a>
+                <a class="collapse-item" href="{{route('admin.sliders.index')}}">index</a>
+                <a class="collapse-item" href="{{route('admin.sliders.create')}}">create</a>
             </div>
         </div>
     </li>
@@ -76,8 +76,8 @@
                 </ul>
                 <div id="category" class="collapse" aria-labelledby="headingUtilities" data-parent="#sidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item text-black" href="{{route('category.index')}}">index</a>
-                        <a class="collapse-item text-black" href="{{route('category.create')}}">create</a>
+                        <a class="collapse-item text-black" href="{{route('admin.category.index')}}">index</a>
+                        <a class="collapse-item text-black" href="{{route('admin.category.create')}}">create</a>
                     </div>
                 </div>
                 <ul id="sidebar2" class="sidebar_position">
@@ -88,11 +88,11 @@
                 </ul>
                 <div id="comment" class="collapse" aria-labelledby="headingUtilities" data-parent="#sidebar2">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item text-black" href="{{route('product.comment.index')}}">index</a>
+                        <a class="collapse-item text-black" href="{{route('admin.product.comment.index')}}">index</a>
                     </div>
                 </div>
-                <a class="collapse-item" href="{{route('products.index')}}">index</a>
-                <a class="collapse-item" href="{{route('products.create')}}">create</a>
+                <a class="collapse-item" href="{{route('admin.products.index')}}">index</a>
+                <a class="collapse-item" href="{{route('admin.products.create')}}">create</a>
 
             </div>
         </div>

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<form action="{{route('news.update',['id'=>$news->id])}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.news.update',['id'=>$news->id])}}" method="post" enctype="multipart/form-data">
     @csrf
     {{--Begin:Title--}}
     <div class="form-group">

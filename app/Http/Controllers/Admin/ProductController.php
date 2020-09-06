@@ -123,7 +123,7 @@ class ProductController extends Controller
             $product->video = $request->file('video');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('admin.products.index'));
     }
 
     /**

@@ -53,7 +53,7 @@
 $ ( document ).ready(function() {
     $.ajax({
         type: 'GET',
-        url: '{{route('sliders.data')}}',
+        url: '{{route('admin.sliders.data')}}',
         mimeType: 'json',
         success: function(data) {
             var size = Object.size(data.data);

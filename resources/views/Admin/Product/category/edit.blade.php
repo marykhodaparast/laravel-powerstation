@@ -10,7 +10,7 @@
     <strong>{{ Session::get('message') }}</strong>
 </div>
 @endif
-<form action="{{route('category.update',['id'=>$category->id])}}" method="post">
+<form action="{{route('admin.category.update',['id'=>$category->id])}}" method="post">
     @csrf
     {{--Begin:Name--}}
     <div class="form-group">
